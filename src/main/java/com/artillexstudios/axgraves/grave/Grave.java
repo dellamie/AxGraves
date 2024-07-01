@@ -91,9 +91,9 @@ public class Grave {
 
         int itemsAm = countItems();
 
-        int time = CONFIG.getInt("despawn-time-seconds", 180);
+        int time = CONFIG.getInt("despawn-time-seconds", 3600);
         boolean outOfTime = time * 1_000L <= (System.currentTimeMillis() - spawned);
-        boolean despawn = CONFIG.getBoolean("despawn-when-empty", true);
+        boolean despawn = CONFIG.getBoolean("despawn-when-empty", false);
         boolean empty = itemsAm == 0 && storedXP == 0;
         if ((time != -1 && outOfTime) || (despawn && empty)) {
             remove();
